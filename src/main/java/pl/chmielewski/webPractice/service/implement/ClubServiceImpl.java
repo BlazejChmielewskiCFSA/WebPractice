@@ -1,6 +1,7 @@
 package pl.chmielewski.webPractice.service.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import pl.chmielewski.webPractice.dto.ClubDto;
 import pl.chmielewski.webPractice.models.Club;
 import pl.chmielewski.webPractice.repository.ClubRepository;
@@ -9,6 +10,7 @@ import pl.chmielewski.webPractice.service.ClubService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ClubServiceImpl implements ClubService {
     private ClubRepository clubRepository;
 
@@ -24,7 +26,7 @@ public class ClubServiceImpl implements ClubService {
     }
 
     private ClubDto mapToClubDto(Club club){
-        ClubDto clubDto = ClubDto.builder()
+        return ClubDto.builder()
                 .id(club.getId())
                 .title(club.getTitle())
                 .photoUrl(club.getPhotoUrl())
@@ -32,6 +34,5 @@ public class ClubServiceImpl implements ClubService {
                 .createOn(club.getCreateOn())
                 .updateOn(club.getUpdateOn())
                 .build();
-        return clubDto;
     }
 }
