@@ -1,7 +1,12 @@
 package pl.chmielewski.webPractice.dto;
 
+import lombok.Builder;
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
+@Data
+@Builder
 public class ClubDto {
     private Long id;
     private String title;
