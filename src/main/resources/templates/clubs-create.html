@@ -1,0 +1,60 @@
+<html
+        xmlns:th="http://www/thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml"
+        xmlns:xmls="http://www.w3.org/1999/xhtml"
+        xmls:layout="http://www.ultrag.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+  <title>Club Create</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+</head>
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+  <section layout:fragment="body" class="py-5">
+    <div class="container">
+    <form role="form" method="post" th:action="@{/clubs/new}" th:object="${club}">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right-square-fill" viewBox="0 0 16 16">
+            <path d="M14 16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12zM5.904 5.197 10 9.293V6.525a.5.5 0 0 1 1 0V10.5a.5.5 0 0 1-.5.5H6.525a.5.5 0 0 1 0-1h2.768L5.197 5.904a.5.5 0 0 1 .707-.707z"/>
+          </svg>
+          <label for="title">Title</label>
+          <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  name="title"
+                  th:field="*{title}"
+                  placeholder="Title">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="photoUrl">Photo URL</label>
+          <input
+                  type="text"
+                  class="form-control"
+                  id="photoUrl"
+                  name="photoUrl"
+                  th:field="*{photoUrl}"
+                  placeholder="Photo URL">
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="content">Content</label>
+        <input
+                type="text"
+                class="form-control"
+                id="content"
+                name="content"
+                th:field="*{content}"
+                placeholder="Content">
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+    </div>
+  </section>
+</main>
+</body>
+</html>
